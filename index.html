@@ -110,67 +110,76 @@
       color: var(--cyan);
       text-shadow: 0 0 10px var(--cyan);
     }
+  </style>
+</head>
+<body>
 
-    /* HERO SECTION */
-    .hero {
-      padding: 90px 0 60px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: 40px;
-    }
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="mark">A</div>
+        <span>AegisCore</span>
+      </div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#modules">Modules</a>
+        <a href="#terminal">Terminal</a>
+      </nav>
+    </div>
+  </header>
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
+  <main class="wrap">
+    <section class="hero" id="overview">
+      <div>
+        <span class="eyebrow">Cybersecurity & System Architecture</span>
+        <h1>Defending Networks with <em>Next-Gen Security</em></h1>
+        <p class="lead">
+          Interactive learning platform and research lab dedicated to threat intelligence, application security, and ethical system defense.
+        </p>
+        <div class="actions">
+          <a href="#modules" class="btn btn-primary">Explore Portfolio</a>
+          <a href="#terminal" class="btn">Launch Terminal</a>
+        </div>
+      </div>
 
-    .eyebrow {
-      font-size: .85rem;
-      font-weight: 800;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, var(--crimson), var(--cyan), var(--emerald));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      display: inline-block;
-      margin-bottom: 12px;
-    }
+      <div class="terminal" id="terminal">
+        <div class="terminal-header">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+          <span style="margin-left: 10px; font-size: 0.75rem; color: var(--muted);">aegis@sec-node:~</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">$ aegis --status</span></div>
+          <div class="terminal-line out">[SYSTEM]: All Defense Nodes Operational</div>
+          <div class="terminal-line"><span class="cmd">$ aegis --scan network</span></div>
+          <div class="terminal-line out">[SCAN]: 0 Vulnerabilities Detected</div>
+          <div class="terminal-line"><span class="cmd">$ aegis --ver</span></div>
+          <div class="terminal-line out">AegisCore v2.4.0-release</div>
+        </div>
+      </div>
+    </section>
+    <section class="grid" id="modules">
+      <div class="card">
+        <h3>Threat Analysis</h3>
+        <p>Proactive monitoring and intelligence gathering to identify and mitigate cyber vulnerabilities before exploitation.</p>
+      </div>
+      <div class="card">
+        <h3>Ethical Hacking</h3>
+        <p>Comprehensive penetration testing methodologies designed to harden enterprise software and infrastructure.</p>
+      </div>
+      <div class="card">
+        <h3>Cloud Security</h3>
+        <p>Architecting secure containerized environments and automated deployment pipelines with zero-trust architecture.</p>
+      </div>
+    </section>
+  </main>
 
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      line-height: 1.1;
-      letter-spacing: -.03em;
-      margin-bottom: 16px;
-    }
+  <footer>
+    <div class="wrap">
+      <p>© 2026 AegisCore Portfolio. Published via GitHub Pages.</p>
+    </div>
+  </footer>
 
-    h1 em {
-      font-style: normal;
-      background: linear-gradient(90deg, var(--cyan), var(--emerald));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 580px;
-      margin-bottom: 28px;
-    }
-
-    .actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: .9rem;
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
+</body>
+</html>
