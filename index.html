@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b110f">
+  <meta name="description" content="AegisCore — a learning portfolio exploring networking, Linux, programming, and ethical cybersecurity.">
+  <title>AegisCore — Protection at the Core</title>
+  <style>
+    :root{--bg:#0b110f;--panel:#111b17;--panel2:#14221b;--line:#263a2e;--text:#eef6f0;--muted:#a1b3a7;--green:#9be7b2;--green2:#54c77a;--max:1120px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#173322 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:#0b110fe8;backdrop-filter:blur(12px);border-bottom:1px solid #203128}
+    .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.04em}.mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid #3d7650;border-radius:12px;color:var(--green);background:#12251a}
+    .brand span{color:var(--green)}nav{display:flex;gap:24px;align-items:center;font-size:.93rem;color:var(--muted)}nav a:hover,.textlink:hover{color:var(--green)}.menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px 11px}
+    .hero{padding:94px 0 78px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:56px}.eyebrow{color:var(--green);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    h1{font-size:clamp(2.8rem,6vw,5.25rem);line-height:1.03;letter-spacing:-.055em;margin:18px 0 22px;max-width:760px}h1 em{font-style:normal;color:var(--green)}
+    .lead{color:var(--muted);font-size:1.12rem;max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;font-weight:750;border:1px solid var(--line);transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.primary{background:var(--green);color:#092012;border-color:var(--green)}.secondary{background:#101a15}
+    .terminal{border:1px solid #31503b;background:#0c1510;border-radius:18px;overflow:hidden;box-shadow:0 24px 80px #0005;transform:rotate(1deg)}.termhead{display:flex;align-items:center;gap:7px;padding:14px 17px;border-bottom:1px solid #24372a;color:#93a99a;font-size:.8rem}.dot{width:8px;height:8px;border-radius:50%;background:#426b4d}.termname{margin-left:auto}.termbody{padding:23px;font: .91rem/2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b7cabb}.prompt{color:var(--green)}.output{color:#e4f2e7}.cursor{display:inline-block;width:8px;height:16px;background:var(--green);vertical-align:middle;animation:blink 1s steps(2,start) infinite}@keyframes blink{to{visibility:hidden}}
+    section{padding:72px 0}.sectionhead{max-width:690px;margin-bottom:32px}.sectionhead h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.04em;margin:10px 0 14px}.sectionhead p{color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,#14221a,#101814);border:1px solid var(--line);border-radius:16px;padding:24px}.icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#1d3827;color:var(--green);font-size:1.2rem}.card h3{margin:17px 0 8px;font-size:1.12rem}.card p{color:var(--muted);margin:0;font-size:.95rem}.tag{display:inline-block;margin-top:17px;border:1px solid #34543d;color:#b9eac5;border-radius:99px;padding:4px 9px;font-size:.75rem}
+    .about{display:grid;grid-template-columns:.75fr 1.25fr;gap:50px;align-items:start}.principles{display:grid;gap:12px}.principle{display:flex;gap:13px;align-items:flex-start;padding:15px 17px;border:1px solid var(--line);border-radius:12px;background:#101914}.check{color:var(--green);font-weight:900}.note{border-left:3px solid var(--green2);padding:15px 18px;background:#122018;color:#c5d6ca;border-radius:0 10px 10px 0;margin-top:22px}
+    .project{display:flex;flex-direction:column;min-height:230px}.project .small{font-size:.78rem;color:var(--green);font-weight:800;letter-spacing:.1em;text-transform:uppercase}.project p{flex:1}.textlink{color:var(--green);font-weight:750}
+    .contactbox{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:34px;border:1px solid #31503b;border-radius:18px;background:linear-gradient(120deg,#14281b,#101814)}.contactbox h2{margin:0 0 8px;font-size:2rem}.contactbox p{color:var(--muted);margin:0;max-width:630px}
+    footer{border-top:1px solid #203128;padding:26px 0;color:var(--muted);font-size:.85rem}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;gap:38px;padding-top:66px}.terminal{max-width:600px}.grid{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr;gap:24px}.contactbox{align-items:flex-start;flex-direction:column}}
+    @media(max-width:560px){.wrap{width:min(100% - 28px,var(--max))}.nav{min-height:66px}nav{display:none;position:absolute;top:66px;left:0;right:0;padding:18px 22px;background:#0b110f;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}nav.open{display:flex}.menu{display:block}.grid{grid-template-columns:1fr}.hero{padding:54px 0}.termbody{padding:16px;font-size:.78rem}section{padding:56px 0}.contactbox{padding:24px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="AegisCore home"><span class="mark">◇</span> AEGIS<span>CORE</span></a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <nav id="navlinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#focus">Focus</a><a href="#projects">Projects</a><a href="#principles">Principles</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <div class="eyebrow">Independent learning portfolio</div>
+      <h1>Protection at the <em>Core.</em></h1>
+      <p class="lead">AegisCore is my journey into cybersecurity—built on strong fundamentals, practical experiments, and a commitment to using technical skills responsibly.</p>
+      <div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn secondary" href="#about">My mission</a></div>
+    </div>
+    <div class="terminal" aria-label="Decorative terminal illustration">
+      <div class="termhead"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="termname">aegiscore / learning.log</span></div>
+      <div class="termbody">
+        <div><span class="prompt">student@aegiscore</span>:~$ whoami</div>
+        <div class="output">Aspiring ethical hacker</div>
+        <div><span class="prompt">student@aegiscore</span>:~$ current_focus</div>
+        <div class="output">Networking · Linux · Python</div>
+        <div><span class="prompt">student@aegiscore</span>:~$ principles</div>
+        <div class="output">Learn. Test. Document. Protect.</div>
+        <div><span class="prompt">student@aegiscore</span>:~$ <i class="cursor"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="sectionhead">
+        <div class="eyebrow">01 / About</div>
+        <h2>Curiosity with a code of conduct.</h2>
+      </div>
+      <div>
+        <p class="lead">I’m a student building a foundation in computer systems and cybersecurity. This site documents what I learn, the projects I build, and the questions I’m working to answer.</p>
+        <p style="color:var(--muted)">The goal is steady progress: understand the fundamentals first, practise in legal labs, and explain technical ideas clearly enough that others can learn from them.</p>
+        <div class="note">This is a learning portfolio. Skills and achievements will be added as they are genuinely earned and documented.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="focus">
+    <div class="wrap">
+      <div class="sectionhead"><div class="eyebrow">02 / Learning path</div><h2>Build the fundamentals.</h2><p>Strong security work starts with understanding how systems operate—not just running tools.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">⌘</div><h3>Networking</h3><p>TCP/IP, DNS, HTTP/HTTPS, ports, routing, and how devices communicate.</p><span class="tag">Learn the traffic</span></article>
+        <article class="card"><div class="icon">$_</div><h3>Linux & systems</h3><p>Command-line fluency, files and permissions, processes, services, and system basics.</p><span class="tag">Know the system</span></article>
+        <article class="card"><div class="icon">〈〉</div><h3>Programming</h3><p>Python and web fundamentals for automation, problem-solving, and understanding applications.</p><span class="tag">Build and understand</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sectionhead"><div class="eyebrow">03 / Workbench</div><h2>Projects, notes, and experiments.</h2><p>These are starter project cards. Replace them with links and evidence as you complete each project.</p></div>
+      <div class="grid">
+        <article class="card project"><div class="small">Project 01 · Beginner</div><h3>Networking Field Notes</h3><p>A concise notebook explaining IP addresses, DNS, ports, and common protocols with diagrams and examples.</p><a class="textlink" href="#contact">Project write-up coming soon →</a></article>
+        <article class="card project"><div class="small">Project 02 · Beginner</div><h3>Linux Command Journal</h3><p>Document useful commands, what they do, and safe practice examples from a personal lab environment.</p><a class="textlink" href="#contact">Project write-up coming soon →</a></article>
+        <article class="card project"><div class="small">Project 03 · In progress</div><h3>Python Utilities</h3><p>Small scripts for learning and automating routine tasks, with readable code and clear documentation.</p><a class="textlink" href="#contact">Project write-up coming soon →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <div class="wrap">
+      <div class="sectionhead"><div class="eyebrow">04 / Principles</div><h2>Skill means responsibility.</h2><p>The standards behind every experiment and future project.</p></div>
+      <div class="principles">
+        <div class="principle"><span class="check">✓</span><div><strong>Permission first</strong><br><span style="color:var(--muted)">Test only systems I own or have explicit authorization to assess.</span></div></div>
+        <div class="principle"><span class="check">✓</span><div><strong>Learn the why</strong><br><span style="color:var(--muted)">Understand the underlying concepts instead of blindly copying commands.</span></div></div>
+        <div class="principle"><span class="check">✓</span><div><strong>Document honestly</strong><br><span style="color:var(--muted)">Share reproducible work and never claim skills or credentials I have not earned.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contactbox">
+        <div><div class="eyebrow">05 / Contact</div><h2>Let’s connect professionally.</h2><p>Have a learning resource, a project idea, or constructive feedback? Add your preferred public contact link below when you’re ready.</p></div>
+        <a class="btn primary" href="https://github.com/" target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> AegisCore · Built to learn and protect.</span><span>Ethical practice. Continuous improvement.</span></div></footer>
+<script>
+  const menu = document.getElementById('menu');
+  const nav = document.getElementById('navlinks');
+  menu.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(open));
+  });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false');
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
