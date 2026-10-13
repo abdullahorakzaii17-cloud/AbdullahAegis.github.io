@@ -1,159 +1,308 @@
-```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#030712">
-  <meta name="description" content="AegisCore — Ultra-Premium Cyber Security & Systems Engineering Portfolio">
   <title>AegisCore — Protection at the Core</title>
-  
   <style>
     :root {
-      --bg-dark: #030712;
-      --panel-glass: rgba(15, 23, 42, 0.65);
-      --panel-border: rgba(255, 255, 255, 0.12);
-      
-      /* Vibrant Liquid Cyber Palette */
-      --red-glow: #ff2a5f;
-      --blue-glow: #00e5ff;
-      --green-glow: #00ff87;
-      --black-obsidian: #090d16;
-      
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      --max-width: 1200px;
+      --bg: #030508;
+      --card-bg: rgba(12, 17, 26, 0.65);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text: #f3f6fc;
+      --muted: #8b9bb4;
+      --green: #00ff87;
+      --blue: #00e5ff;
+      --red: #ff2a6d;
+      --max: 1180px;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
+      margin: 0;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(255, 42, 109, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 90% 15%, rgba(0, 229, 255, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(0, 255, 135, 0.14) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      overflow-x: hidden;
-      min-height: 100vh;
-      line-height: 1.6;
+      line-height: 1.7;
     }
-
-    .liquid-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.45;
-      animation: floatBlob 18s ease-in-out infinite alternate;
-    }
-
-    .blob-red {
-      top: -10%;
-      left: 20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, var(--red-glow), transparent 70%);
-      animation-duration: 14s;
-    }
-
-    .blob-blue {
-      bottom: 10%;
-      right: -5%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, var(--blue-glow), transparent 70%);
-      animation-duration: 20s;
-    }
-
-    .blob-green {
-      top: 40%;
-      left: -10%;
-      width: 550px;
-      height: 550px;
-      background: radial-gradient(circle, var(--green-glow), transparent 70%);
-      animation-duration: 16s;
-    }
-
-    @keyframes floatBlob {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(60px, 40px) scale(1.15); }
-      100% { transform: translate(-40px, 80px) scale(0.9); }
-    }
-
-    .wrap { width: min(var(--max-width), calc(100% - 40px)); margin: 0 auto; }
-
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin: auto; }
+    
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(3, 7, 18, 0.7);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(3, 5, 8, 0.8);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--panel-border);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-bottom: 1px solid var(--border-color);
     }
+    .nav { min-height: 80px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .06em; font-size: 1.1rem; }
+    .mark {
+      display: grid; place-items: center; width: 40px; height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--red), var(--blue), var(--green));
+      color: #030508; font-weight: 900; font-size: 1.2rem;
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.35);
+    }
+    nav { display: flex; gap: 28px; color: var(--muted); font-size: .92rem; font-weight: 500; }
+    nav a:hover { color: var(--blue); text-shadow: 0 0 12px var(--blue); }
+    
+    .hero { padding: 100px 0 80px; display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 60px; }
+    .eyebrow {
+      font-size: .78rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+      background: linear-gradient(90deg, var(--red), var(--blue), var(--green));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: 1.05; letter-spacing: -.04em; margin: 16px 0 20px; }
+    h1 em { font-style: normal; color: transparent; background: linear-gradient(90deg, var(--blue), var(--green)); -webkit-background-clip: text; background-clip: text; }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 600px; }
+    .actions { display: flex; gap: 16px; margin-top: 32px; }
+    .btn {
+      padding: 14px 28px; border-radius: 14px; font-weight: 750; font-size: .95rem;
+      border: 1px solid var(--border-color); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-3px); }
+    .primary {
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #030508; border: none; font-weight: 800;
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
+    }
+    .primary:hover { box-shadow: 0 0 40px rgba(0, 229, 255, 0.7); }
 
-    .nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .terminal {
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      background: rgba(8, 13, 22, 0.85); backdrop-filter: blur(20px);
+      border-radius: 20px; box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(255, 42, 109, 0.15);
     }
+    .termhead { padding: 16px 20px; border-bottom: 1px solid var(--border-color); color: var(--muted); font-size: .8rem; display: flex; gap: 8px; align-items: center; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
+    .dot:nth-child(2) { background: #ffbd2e; }
+    .dot:nth-child(3) { background: var(--green); }
+    .termbody { padding: 24px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .9rem; line-height: 2.1; }
+    .prompt { color: var(--blue); }
+    .output { color: #d4e5ee; }
+    
+    section { padding: 80px 0; }
+    .section-header { margin-bottom: 40px; }
+    .section-header h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); margin: 8px 0 12px; letter-spacing: -.03em; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: 24px; padding: 32px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,42,109,0.08), rgba(0,229,255,0.08), rgba(0,255,135,0.08));
+      opacity: 0; transition: opacity 0.4s; pointer-events: none;
+    }
+    .card:hover::before { opacity: 1; }
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: rgba(0, 229, 255, 0.4);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 0 40px rgba(0, 229, 255, 0.2);
+    }
+    .card h3 { margin: 16px 0 10px; font-size: 1.25rem; }
+    .card p { color: var(--muted); font-size: .95rem; margin: 0; }
+    
+    .textlink-btn {
+      background: none; border: none; padding: 0; margin-top: 24px;
+      color: var(--blue); font-weight: 800; cursor: pointer; display: inline-flex;
+      align-items: center; gap: 8px; font-size: 0.95rem; transition: all 0.2s;
+    }
+    .textlink-btn:hover { color: var(--green); text-shadow: 0 0 12px var(--green); gap: 12px; }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.2rem;
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(3, 5, 8, 0.88); backdrop-filter: blur(24px);
+      display: none; align-items: center; justify-content: center; padding: 24px;
     }
+    .modal-overlay.active { display: flex; animation: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+    .modal-box {
+      background: rgba(10, 16, 26, 0.98);
+      border: 1px solid rgba(0, 229, 255, 0.4);
+      box-shadow: 0 0 80px rgba(0, 229, 255, 0.25), 0 0 50px rgba(255, 42, 109, 0.25);
+      border-radius: 28px; max-width: 780px; width: 100%; max-height: 85vh; overflow-y: auto;
+      padding: 40px; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 24px; right: 24px;
+      background: rgba(255, 42, 109, 0.15); border: 1px solid var(--red);
+      color: #ff8ca3; border-radius: 50%; width: 40px; height: 40px;
+      cursor: pointer; font-weight: bold; font-size: 1.1rem;
+      display: grid; place-items: center; transition: all 0.2s;
+    }
+    .modal-close:hover { background: var(--red); color: #fff; box-shadow: 0 0 15px var(--red); }
+    .modal-body h2 { color: var(--blue); margin-top: 0; font-size: 1.8rem; }
+    .modal-body h3 { color: var(--green); margin-top: 28px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1.2rem; }
+    .modal-body p { color: var(--muted); }
+    .modal-body ul { color: var(--muted); padding-left: 20px; }
+    .modal-body li { margin-bottom: 8px; }
+    .modal-body code { background: rgba(0, 229, 255, 0.12); color: var(--blue); padding: 4px 8px; border-radius: 6px; font-family: monospace; font-size: .9rem; border: 1px solid rgba(0,229,255,0.2); }
+    
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.94) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    @media(max-width:900px) { .hero, .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
 
-    .brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--red-glow), var(--blue-glow), var(--green-glow));
-      padding: 1px;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
-    }
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><span class="mark">◇</span> AEGISCORE</a>
+    <nav>
+      <a href="#about">About</a><a href="#focus">Focus</a><a href="#projects">Lessons</a>
+    </nav>
+  </div>
+</header>
 
-    .brand-logo-inner {
-      width: 100%;
-      height: 100%;
-      background: var(--bg-dark);
-      border-radius: 9px;
-      display: grid;
-      place-items: center;
-      color: var(--blue-glow);
-      font-weight: 900;
-    }
+<main>
+  <div class="wrap hero" id="about">
+    <div>
+      <div class="eyebrow">Cybersecurity & Systems Portfolio</div>
+      <h1>Protection at the <em>Core.</em></h1>
+      <p class="lead">AegisCore is my journey into cybersecurity—built on strong fundamentals, practical lab experiments, and clear operational documentation.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore Lessons ↗</a>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="termhead"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span style="margin-left:auto;">aegiscore / kernel.log</span></div>
+      <div class="termbody">
+        <div><span class="prompt">student@aegiscore</span>:~$ whoami</div>
+        <div class="output">Aspiring Ethical Hacker & Security Analyst</div>
+        <div><span class="prompt">student@aegiscore</span>:~$ current_focus</div>
+        <div class="output">Networking · Linux Security · Automation</div>
+      </div>
+    </div>
+  </div>
 
-    .brand span {
-      background: linear-gradient(90deg, var(--blue-glow), var(--green-glow));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-header">
+        <div class="eyebrow">01 / Interactive Modules</div>
+        <h2>Direct Study Notes & Field Guides</h2>
+        <p style="color:var(--muted)">Click any core module below to instantly open clean study material and technical breakdown sheets.</p>
+      </div>
+      
+      <div class="grid">
+        
+        <article class="card">
+          <span style="color:var(--green); font-weight:800; font-size:.78rem; letter-spacing:.1em;">MODULE 01</span>
+          <h3>Networking Field Notes</h3>
+          <p>Comprehensive breakdown of network layers, TCP/IP handshakes, core ports, and routing fundamentals.</p>
+          <button class="textlink-btn" onclick="openModal('net-modal')">Read Core Notes →</button>
+        </article>
 
-    nav { display: flex; gap: 28px; font-size: 0.92rem; font-weight: 600; }
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
+        <article class="card">
+          <span style="color:var(--blue); font-weight:800; font-size:.78rem; letter-spacing:.1em;">MODULE 02</span>
+          <h3>Linux Command Journal</h3>
+          <p>Essential terminal workflows, permission management, process control, and system analysis commands.</p>
+          <button class="textlink-btn" onclick="openModal('linux-modal')">Read Core Journal →</button>
+        </article>
+
+        <article class="card">
+          <span style="color:var(--red); font-weight:800; font-size:.78rem; letter-spacing:.1em;">MODULE 03</span>
+          <h3>Python Utilities</h3>
+          <p>Practical automation scripts, socket networking logic, and custom security tool building blocks.</p>
+          <button class="textlink-btn" onclick="openModal('python-modal')">View Code Notes →</button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal-overlay" id="net-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('net-modal')">✕</button>
+    <div class="modal-body">
+      <h2>Networking Field Notes</h2>
+      <p>Core networking architecture study guide compiled from hands-on lab experiments.</p>
+      
+      <h3>1. Critical Ports & Services</h3>
+      <ul>
+        <li><code>SSH (Port 22)</code> — Secure encrypted shell connection for remote administrative management.</li>
+        <li><code>DNS (Port 53)</code> — Domain Name System protocol resolving human-readable names to IP addresses.</li>
+        <li><code>HTTP / HTTPS (80 / 443)</code> — Web data transfer protocols (unencrypted vs TLS/SSL secured).</li>
+      </ul>
+
+      <h3>2. Diagnostic Commands</h3>
+      <ul>
+        <li><code>ping &lt;host&gt;</code> — Verify host reachability and round-trip latency via ICMP echo requests.</li>
+        <li><code>traceroute &lt;host&gt;</code> — Map out network gateway hops across the end-to-end path.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="linux-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('linux-modal')">✕</button>
+    <div class="modal-body">
+      <h2>Linux Command Journal</h2>
+      <p>Terminal fluency and system operations reference sheet for administrative security tasks.</p>
+      
+      <h3>1. File Permissions & Control</h3>
+      <ul>
+        <li><code>chmod 755 script.sh</code> — Assigns read/write/execute rights to owner, and read/execute to group/others.</li>
+        <li><code>chown user:group file</code> — Alters file user ownership and group association.</li>
+      </ul>
+
+      <h3>2. Process Monitoring</h3>
+      <ul>
+        <li><code>ps aux | grep service</code> — Filters active process list for specific daemon keywords.</li>
+        <li><code>kill -9 &lt;PID&gt;</code> — Forcefully terminates a misbehaving process identifier.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="python-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('python-modal')">✕</button>
+    <div class="modal-body">
+      <h2>Python Utilities & Snippets</h2>
+      <p>Python script references designed for automated reconnaissance and task execution.</p>
+      
+      <h3>1. TCP Socket Connection Test</h3>
+      <p>Quick socket check snippet to determine if a specific target port is accepting traffic:</p>
+      <pre style="background:rgba(0,0,0,0.6); padding:16px; border-radius:12px; color:var(--green); overflow-x:auto; border:1px solid rgba(0,255,135,0.2);">import socket
+
+target_ip = '127.0.0.1'
+target_port = 80
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.settimeout(2)
+result = s.connect_ex((target_ip, target_port))
+if result == 0:
+    print(f"Port {target_port} is OPEN")
+else:
+    print(f"Port {target_port} is CLOSED")
+s.close()</pre>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(id) { document.getElementById(id).classList.add('active'); }
+  function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal-overlay')) {
+      event.target.classList.remove('active');
     }
-    nav a:hove
+  }
+</script>
+
+</body>
+</html>
