@@ -1,327 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AegisCore — Advanced Cyber & Systems Hub</title>
-  <style>
-    :root {
-      --bg: #060a12;
-      --panel: rgba(13, 22, 38, 0.85);
-      --panel-hover: rgba(18, 30, 52, 0.95);
-      --border: rgba(0, 243, 255, 0.25);
-      --border-glow: rgba(0, 243, 255, 0.7);
-      --text: #e2f1f8;
-      --muted: #8ca3bf;
-      --cyan: #00f3ff;
-      --emerald: #00ff88;
-      --crimson: #ff0055;
-      --amber: #ffaa00;
-      --max: 1300px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg);
-      background-image: 
-        radial-gradient(circle at 10% 10%, rgba(255, 0, 85, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 90% 20%, rgba(0, 243, 255, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 50% 90%, rgba(0, 255, 136, 0.08) 0%, transparent 50%);
-      background-attachment: fixed;
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(6, 10, 18, 0.9);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      min-height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      font-size: 1.2rem;
-    }
-
-    .mark {
-      display: grid;
-      place-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--crimson), var(--cyan));
-      color: #060a12;
-      font-weight: 900;
-      font-size: 1.2rem;
-      box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
-      animation: corePulse 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes corePulse {
-      0% { box-shadow: 0 0 15px rgba(0, 243, 255, 0.3); transform: scale(1); }
-      100% { box-shadow: 0 0 30px rgba(255, 0, 85, 0.6); transform: scale(1.03); }
-    }
-
-    nav {
-      display: flex;
-      gap: 24px;
-      color: var(--muted);
-      font-size: .95rem;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: var(--cyan);
-      text-shadow: 0 0 10px var(--cyan);
-    }
-    /* HERO */
-    .hero {
-      padding: 80px 0 50px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: 40px;
-    }
-
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-    }
-
-    .eyebrow {
-      font-size: .85rem;
-      font-weight: 800;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, var(--crimson), var(--cyan), var(--emerald));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 4.5vw, 4rem);
-      line-height: 1.1;
-      letter-spacing: -.03em;
-      margin-bottom: 16px;
-    }
-
-    h1 em {
-      font-style: normal;
-      background: linear-gradient(90deg, var(--cyan), var(--emerald));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-bottom: 28px;
-    }
-
-    /* TERMINAL */
-    .terminal {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-    }
-
-    .terminal-header {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-red { background: var(--crimson); }
-    .dot-yellow { background: var(--amber); }
-    .dot-green { background: var(--emerald); }
-
-    .terminal-body {
-      padding: 20px;
-      font-family: monospace;
-      font-size: 0.88rem;
-      color: var(--cyan);
-    }
-
-    .terminal-line { margin-bottom: 8px; }
-    .cmd { color: var(--text); }
-    .out { color: var(--muted); }
-
-    /* MODULES SECTIONS */
-    .section-title {
-      font-size: 2rem;
-      margin: 60px 0 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--cyan);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 30px;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card:hover {
-      background: var(--panel-hover);
-      border-color: var(--border-glow);
-      transform: translateY(-6px);
-      box-shadow: 0 15px 35px rgba(0, 243, 255, 0.15);
-    }
-
-    .card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-      color: var(--text);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-    }
-    /* ACCORDION NOTES / TOGGLE */
-    .notes-box {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      margin-top: 15px;
-      overflow: hidden;
-    }
-
-    .notes-toggle {
-      width: 100%;
-      background: transparent;
-      border: none;
-      color: var(--cyan);
-      padding: 12px 16px;
-      text-align: left;
-      font-weight: 700;
-      font-size: 0.9rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.2s;
-    }
-
-    .notes-toggle:hover {
-      background: rgba(0, 243, 255, 0.05);
-    }
-
-    .notes-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-in-out;
-      padding: 0 16px;
-      font-size: 0.88rem;
-      color: var(--muted);
-      border-top: 1px solid transparent;
-    }
-
-    .notes-content.open {
-      max-height: 400px;
-      padding: 12px 16px 16px;
-      border-top-color: rgba(255, 255, 255, 0.05);
-    }
-
-    code.inline-code {
-      background: rgba(0, 243, 255, 0.1);
-      color: var(--cyan);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.85rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin-top: 60px;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="wrap nav">
-      <div class="brand">
-        <div class="mark">A</div>
-        <span>AegisCore Hub</span>
-      </div>
-      <nav>
-        <a href="#networking">Networking</a>
-        <a href="#linux">Linux Journal</a>
-        <a href="#python">Python Utils</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <!-- HERO SECTION -->
+<!-- HERO SECTION -->
     <section class="hero">
       <div>
         <span class="eyebrow">Advanced Cybersecurity & Architecture Lab</span>
@@ -342,145 +19,160 @@
           <div class="terminal-line"><span class="cmd">$ aegis-init --all-modules</span></div>
           <div class="terminal-line out">[INFO]: Networking, Linux & Python Hub Online</div>
           <div class="terminal-line"><span class="cmd">$ status --ready</span></div>
-          <div class="terminal-line out">[SUCCESS]: One-Click Notes Loaded Perfectly.</div>
+          <div class="terminal-line out">[SUCCESS]: Glassmorphism UI & All Notes Loaded Perfectly.</div>
         </div>
       </div>
     </section>
+
     <!-- NETWORKING SECTION -->
-    <h2 class="section-title" id="networking">🌐 Networking & Protocols</h2>
+    <h2 class="section-title" id="networking">🌐 CCNA Network Engineering Masterclass</h2>
     <div class="grid">
       <div class="card">
-        <h3>OSI Model & Layers <span>Layer 1-7</span></h3>
-        <p>Core architecture framework defining how data moves across communication networks from physical media to applications.</p>
+        <h3>Network Fundamentals <span>OSI & TCP/IP</span></h3>
+        <p>Core architecture framework defining how data moves across communication networks, encapsulation, and cabling standards.</p>
         <div class="notes-box">
-          <button class="notes-toggle" onclick="toggleNotes(this)">View Basic to Advanced Notes <span>▼</span></button>
-          <div class="notes-content">
-            <strong>Basic:</strong> 7 layers divided into Media (1-3) and Host layers (4-7).<br><br>
-            <strong>Advanced:</strong> Encapsulation/Decapsulation mechanics, TCP/IP mapping, and deep packet inspection points at Layer 4 (Transport) and Layer 7 (Application).
-          </div>
+          <strong>Exam Core:</strong> OSI 7-Layer model vs. TCP/IP 4-Layer model mapping.<br><br>
+          <strong>Deep Dive:</strong> Encapsulation/Decapsulation mechanics, Data Link layer addressing (MAC/EUI-48), physical layer media types (Copper UTP, Fiber SMF/MMF), PoE (Power over Ethernet 802.3af/at), and collision/broadcast domain boundaries.
         </div>
       </div>
 
       <div class="card">
-        <h3>TCP vs UDP & Sockets <span>Transport</span></h3>
-        <p>Understanding connection-oriented reliable transmission versus connectionless datagram streaming performance.</p>
+        <h3>LAN Switching Technologies <span>VLANs & STP</span></h3>
+        <p>Layer 2 switching operations, Virtual LAN segmentation, trunking protocols, and loop prevention mechanisms.</p>
         <div class="notes-box">
-          <button class="notes-toggle" onclick="toggleNotes(this)">View Basic to Advanced Notes <span>▼</span></button>
-          <div class="notes-content">
-            <strong>Basic:</strong> TCP ensures delivery with 3-way handshakes; UDP is faster for real-time video/gaming.<br><br>
-            <strong>Advanced:</strong> Socket programming states (<code class="inline-code">LISTEN</code>, <code class="inline-code">ESTABLISHED</code>, <code class="inline-code">TIME_WAIT</code>) and window scaling optimizations.
-          </div>
+          <strong>Exam Core:</strong> Access vs. Trunk ports, IEEE 802.1Q encapsulation, and Native VLAN configuration.<br><br>
+          <strong>Deep Dive:</strong> Spanning Tree Protocol (STP / RSTP 802.1w) port states (Discarding, Learning, Forwarding), BPDU guard, PortFast, Inter-VLAN routing (Router-on-a-Stick & Layer 3 Switches), and EtherChannel (LACP/PAgP).
         </div>
       </div>
 
       <div class="card">
-        <h3>Subnetting & CIDR <span>Addressing</span></h3>
-        <p>Dividing large IP networks into smaller, manageable subnet masks for optimal routing and security compartmentalization.</p>
+        <h3>Routing Technologies & OSPF <span>Layer 3</span></h3>
+        <p>Static routing configurations and dynamic interior gateway routing protocols for multi-hop packet delivery.</p>
         <div class="notes-box">
-          <button class="notes-toggle" onclick="toggleNotes(this)">View Basic to Advanced Notes <span>▼</span></button>
-          <div class="notes-content">
-            <strong>Basic:</strong> Calculating host ranges using CIDR blocks like <code class="inline-code">/24</code> or <code class="inline-code">/28</code>.<br><br>
-            <strong>Advanced:</strong> Variable Length Subnet Masking (VLSM) and route summarization architectures.
-          </div>
+          <strong>Exam Core:</strong> Administrative Distance (AD), Metric calculation, and floating static routes.<br><br>
+          <strong>Deep Dive:</strong> OSPFv2 (Single-Area & Multi-Area Open Shortest Path First). Link-State Advertisements (LSAs), Dijkstra's Shortest Path First (SPF) algorithm, router IDs, Hello timers, and passive interfaces.
         </div>
       </div>
-    </div>
 
-    <!-- LINUX COMMAND JOURNAL -->
-    <h2 class="section-title" id="linux">🐧 Linux Command Journal</h2>
+      <div class="card">
+        <h3>IPv4 & IPv6 Addressing <span>Subnetting</span></h3>
+        <p>IP network design, variable-length subnet masking (VLSM), public vs. private spaces, and next-gen addressing.</p>
+        <div class="notes-box">
+          <strong>Exam Core:</strong> CIDR notation, subnet calculation, wildcard masking, and address allocation.<br><br>
+          <strong>Deep Dive:</strong> IPv6 global unicast, link-local, unique local addresses, SLAAC (Stateless Address Autoconfiguration), EUI-64 format, and dual-stack migration strategies.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>IP Services & Infrastructure <span>DHCP, NAT, ACL</span></h3>
+        <p>Essential enterprise network services ensuring address management, traffic translation, and security filtration.</p>
+        <div class="notes-box">
+          <!-- LINUX COMMAND JOURNAL -->
+    <h2 class="section-title" id="linux">🐧 Linux Command & SysAdmin Masterclass</h2>
     <div class="grid">
       <div class="card">
         <h3>Process & Resource Management <span>SysAdmin</span></h3>
         <p>Monitor, trace, and terminate running system processes and evaluate CPU/memory usage dynamically.</p>
         <div class="notes-box">
-          <button class="notes-toggle" onclick="toggleNotes(this)">View Basic to Advanced Notes <span>▼</span></button>
-          <div class="notes-content">
-            <strong>Basic:</strong> Use <code class="inline-code">ps aux</code>, <code class="inline-code">top</code>, and <code class="inline-code">kill [PID]</code>.<br><br>
-            <strong>Advanced:</strong> Trace system calls using <code class="inline-code">strace -p [PID]</code>, analyze performance bottlenecks with <code class="inline-code">htop</code>, and manage process niceness with <code class="inline-code">renice</code>.
-          </div>
+          <strong>Core Commands:</strong> <code class="inline-code">ps aux</code>, <code class="inline-code">top</code>, <code class="inline-code">htop</code>, and <code class="inline-code">kill [PID]</code>.<br><br>
+          <strong>Deep Dive:</strong> Managing process priorities using <code class="inline-code">nice</code> and <code class="inline-code">renice</code>, tracking kernel system calls with <code class="inline-code">strace -p [PID]</code>, and analyzing real-time resource bottlenecks.
         </div>
       </div>
 
       <div class="card">
-        <h3>Permissions & ACLs <span>Security</span></h3>
-        <p>Master Linux file security controls, UID/GID mapping, SUID/SGID bits, and Access Control Lists.</p>
+        <h3>Permissions, SUID & ACLs <span>Security</span></h3>
+        <p>Master Linux file security controls, UID/GID mapping, special permission bits, and Access Control Lists.</p>
         <div class="notes-box">
-          <button class="notes-toggle" onclick="toggleNotes(this)">View Basic to Advanced Notes <span>▼</span></button>
-          <div class="notes-content">
-            <strong>Basic:</strong> Standard <code class="inline-code">chmod 755</code> and <code class="inline-code">chown</code> ownership rules.<br><br>
-            <strong>Advanced:</strong> Auditing SUID binaries for privilege escalation vectors and setting granular permissions using <code class="inline-code">setfacl</code> / <code class="inline-code">getfacl</code>.
-          </div>
+          <strong>Core Commands:</strong> <code class="inline-code">chmod 755</code>, <code class="inline-code">chown</code>, <code class="inline-code">setfacl</code>, and <code class="inline-code">getfacl</code>.<br><br>
+          <strong>Deep Dive:</strong> Auditing SUID/SGID binaries for privilege escalation vectors, understanding the Sticky Bit, and configuring granular access control lists for multi-user environments.
         </div>
       </div>
-      <div class="card">
-        <h3>Network Troubleshooting <span>Diagnostics</span></h3>
-        <p>Inspect active socket connections, packet paths, and interface configurations in real-time.</p>
-        <div class="notes-box">
-          <button class="notes-toggle" onclick="toggleNotes(this)">View Basic to Advanced Notes <span>▼</span></button>
-          <div class="notes-content">
-            <strong>Basic:</strong> <code class="inline-code">ip a</code>, <code class="inline-code">ping</code>, and <code class="inline-code">netstat -tuln</code>.<br><br>
-            <strong>Advanced:</strong> Modern replacements like <code class="inline-code">ss -tulpn</code>, traffic capturing via <code class="inline-code">tcpdump -i eth0</code>, and network tracing with <code class="inline-code">traceroute</code>.
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- PYTHON UTILITIES -->
-    <h2 class="section-title" id="python">🐍 Python Utilities & Automation</h2>
+      <div class="card">
+        <h3>Network Troubleshooting & Diagnostics <span>Networking</span></h3>
+        <p>Inspect active socket connections, packet paths, network interfaces, and live traffic patterns.</p>
+        <div class="notes-box">
+          <strong>Core Commands:</strong> <code class="inline-code">ip a</code>, <code class="inline-code">ss -tulpn</code>, <code class="inline-code">tcpdump</code>, and <code class="inline-code">traceroute</code>.<br><br>
+          <strong>Deep Dive:</strong> Transitioning from legacy tools (<code class="inline-code">netstat</code>, <code class="inline-code">ifconfig</code>) to modern socket statistics, capturing live packet headers with <code class="inline-code">tcpdump</code>, and diagnosing routing loops.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Storage & File System Management <span>Storage</span></h3>
+        <p>Partitioning disks, managing logical volumes, mounting filesystems, and monitoring disk health.</p>
+        <div class="notes-box">
+          <strong>Core Commands:</strong> <code class="inline-code">lsblk</code>, <code class="inline-code">df -h</code>, <code class="inline-code">fdisk</code>, and <code class="inline-code">mount</code>.<br><br>
+          <strong>Deep Dive:</strong> Logical Volume Manager (LVM) architecture (Physical Volumes, Volume Groups, Logical Volumes), resizing filesystems live, and managing persistent mounts via <code class="inline-code">/etc/fstab</code>.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Systemd & Service Control <span>Daemons</span></h3>
+        <p>Managing system startup, background daemons, service logs, and automated boot targets.</p>
+        <div class="notes-box">
+          <strong>Core Commands:</strong> <code class="inline-code">systemctl</code>, <code class="inline-code">journalctl</code>, and <code class="inline-code">systemd-analyze</code>.<br><br>
+          <strong>Deep Dive:</strong> Writing custom <code class="inline-code">.service</code> configuration files, analyzing boot performance bottlenecks, and querying persistent system logs with filters.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Log Parsing & Bash Scripting <span>Automation</span></h3>
+        <p>Extracting intelligence from log files using powerful text-processing utilities and conditional scripting.</p>
+        <div class="notes-box">
+          <strong>Core Commands:</strong> <code class="inline-code">gr
+            <!-- PYTHON UTILITIES -->
+    <h2 class="section-title" id="python">🐍 Python Utilities & Automation Masterclass</h2>
     <div class="grid">
       <div class="card">
-        <h3>Port Scanner Script <span>Networking</span></h3>
-        <p>Lightweight multi-threaded socket scanner built in Python to audit open ports across local network ranges.</p>
+        <h3>Multi-Threaded Port Scanner <span>Networking</span></h3>
+        <p>Lightweight socket scanner built in Python to audit open ports across local network ranges rapidly.</p>
         <div class="notes-box">
-          <button class="notes-toggle" onclick="toggleNotes(this)">View Basic to Advanced Notes <span>▼</span></button>
-          <div class="notes-content">
-            <strong>Basic:</strong> Using Python's built-in <code class="inline-code">socket</code> library to connect to target IP and port.<br><br>
-            <strong>Advanced:</strong> Implementing <code class="inline-code">concurrent.futures.ThreadPoolExecutor</code> for fast multi-threaded port sweeping with timeout handling.
-          </div>
+          <strong>Core Concepts:</strong> Python <code class="inline-code">socket</code> module and <code class="inline-code">concurrent.futures</code>.<br><br>
+          <strong>Implementation Blueprint:</strong> Using <code class="inline-code">ThreadPoolExecutor</code> to sweep TCP ports concurrently, setting connection timeouts, and handling exceptions for closed or filtered ports cleanly.
         </div>
       </div>
 
       <div class="card">
-        <h3>Log Analyzer Tool <span>Security</span></h3>
-        <p>Automated script parser designed to scan web server access logs for anomalous traffic patterns or brute-force attempts.</p>
+        <h3>Log Analyzer & Threat Parser <span>Security</span></h3>
+        <p>Automated script parser designed to scan web server access logs for anomalous traffic or brute-force attempts.</p>
         <div class="notes-box">
-          <button class="notes-toggle" onclick="toggleNotes(this)">View Basic to Advanced Notes <span>▼</span></button>
-          <div class="notes-content">
-            <strong>Basic:</strong> File reading loops (<code class="inline-code">with open() as f:</code>) and string matching.<br><br>
-            <strong>Advanced:</strong> Regex pattern matching for IP extraction (<code class="inline-code">re.findall</code>) and automated frequency counts using Python's <code class="inline-code">collections.Counter</code>.
-          </div>
+          <strong>Core Concepts:</strong> File handling, Regular Expressions (<code class="inline-code">re</code>), and <code class="inline-code">collections.Counter</code>.<br><br>
+          <strong>Implementation Blueprint:</strong> Extracting IP addresses via regex patterns (<code class="inline-code">re.findall</code>), tracking frequency thresholds to flag suspicious activity, and outputting summary reports.
         </div>
       </div>
 
       <div class="card">
-        <h3>File Integrity Checker <span>Defense</span></h3>
-        <p>Hashing utility that tracks SHA-256 signatures of vital system configuration files to alert against unauthorized modifications.</p>
+        <h3>File Integrity Checker (FIM) <span>Defense</span></h3>
+        <p>Hashing utility that tracks cryptographic signatures of vital configuration files to alert against unauthorized modifications.</p>
         <div class="notes-box">
-          <button class="notes-toggle" onclick="toggleNotes(this)">View Basic to Advanced Notes <span>▼</span></button>
-          <div class="notes-content">
-            <strong>Basic:</strong> Generating file hashes using Python's <code class="inline-code">hashlib</code> module.<br><br>
-            <strong>Advanced:</strong> Storing baseline JSON manifests and running recursive directory checks with differential comparison alerts.
-          </div>
+          <strong>Core Concepts:</strong> Cryptographic hashing via <code class="inline-code">hashlib</code> and JSON state manifests.<br><br>
+          <strong>Implementation Blueprint:</strong> Generating SHA-256 hashes of files in chunks, storing baselines in JSON format, and running recursive directory differentials to trigger instant alerts on file tampering.
         </div>
       </div>
-    </div>
-  </main>
 
-  <footer>
-    <div class="wrap">
-      <p>© 2026 AegisCore Hub. Built with absolute precision and next-gen security standards.</p>
-    </div>
-  </footer>
+      <div class="card">
+        <h3>Network Ping Sweep Tool <span>Diagnostics</span></h3>
+        <p>Automated subprocess manager that pings a subnet range to identify active live hosts connected to the network.</p>
+        <div class="notes-box">
+          <strong>Core Concepts:</strong> Operating system process execution via <code class="inline-code">subprocess</code>.<br><br>
+          <strong>Implementation Blueprint:</strong> Programmatically calling system ping utilities, handling return codes to verify node reachability, and parsing standard outputs into clean lists.
+        </div>
+      </div>
 
-  <script>
-    // Toggle notes accordion smoothly with one click
-    function toggleNotes(button) {
-      const content = button.nextElementSibling;
-      content.classList.toggle('open');
-      const arrow = button.querySelector('span');
-      arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
-    }
-  </script>
+      <div class="card">
+        <h3>REST API Threat Intelligence Fetcher <span>Integration</span></h3>
+        <p>Querying external security APIs to pull live reputation data, indicators of compromise (IOCs), or geo-IP lookups.</p>
+        <div class="notes-box">
+          <strong>Core Concepts:</strong> HTTP requests via <code class="inline-code">urllib</code> or <code class="inline-code">requests</code> and JSON parsing.<br><br>
+          <strong>Implementation Blueprint:</strong> Sending authenticated GET requests to threat feeds, handling JSON response structures, and managing error states gracefully for secure API consumption.
+        </div>
+      </div>
 
-</body>
-</html>
+      <div class="card">
+        <h3>Automated System Backup & Archiver <span>SysAdmin</span></h3>
+        <p>Script utility that compresses log directories and critical configurations into secure, timestamped archives.</p>
+        <div class="notes-box">
+          <strong>Core Concepts:</strong> Built-in <code class="inline-code">shutil</code> and <code class="inline-code">tarfile</code> compression modules.<br><br>
+          <strong>Implementation Blueprint:</strong> Creating automated daily snapshots, appending dynamic timestamps to archive filenames, and managing file directory structures programmatically.
+        </div>
+      </div
