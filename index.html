@@ -1,178 +1,145 @@
-<!-- HERO SECTION -->
-    <section class="hero">
-      <div>
-        <span class="eyebrow">Advanced Cybersecurity & Architecture Lab</span>
-        <h1>Master Systems with <em>Precision Labs</em></h1>
-        <p class="lead">
-          Your centralized command center for networking protocols, advanced Linux command journals, and robust Python automation utilities.
-        </p>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#05060b">
+<title>AegisCore Hub | Learn • Build • Secure</title>
+#networking-library {
+  margin-top: 32px;
+  padding: 28px;
+  scroll-margin-top: 100px;
+}
 
-      <div class="terminal">
-        <div class="terminal-header">
-          <div class="dot dot-red"></div>
-          <div class="dot dot-yellow"></div>
-          <div class="dot dot-green"></div>
-          <span style="margin-left: 10px; font-size: 0.75rem; color: var(--muted);">aegis@master-node:~</span>
-        </div>
-        <div class="terminal-body">
-          <div class="terminal-line"><span class="cmd">$ aegis-init --all-modules</span></div>
-          <div class="terminal-line out">[INFO]: Networking, Linux & Python Hub Online</div>
-          <div class="terminal-line"><span class="cmd">$ status --ready</span></div>
-          <div class="terminal-line out">[SUCCESS]: Glassmorphism UI & All Notes Loaded Perfectly.</div>
-        </div>
-      </div>
-    </section>
+#networking-library h2 {
+  color: #ff405c;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  margin-bottom: 12px;
+}
 
-    <!-- NETWORKING SECTION -->
-    <h2 class="section-title" id="networking">🌐 CCNA Network Engineering Masterclass</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Network Fundamentals <span>OSI & TCP/IP</span></h3>
-        <p>Core architecture framework defining how data moves across communication networks, encapsulation, and cabling standards.</p>
-        <div class="notes-box">
-          <strong>Exam Core:</strong> OSI 7-Layer model vs. TCP/IP 4-Layer model mapping.<br><br>
-          <strong>Deep Dive:</strong> Encapsulation/Decapsulation mechanics, Data Link layer addressing (MAC/EUI-48), physical layer media types (Copper UTP, Fiber SMF/MMF), PoE (Power over Ethernet 802.3af/at), and collision/broadcast domain boundaries.
-        </div>
-      </div>
+#networking-library h3 {
+  color: #76baff;
+  margin-top: 26px;
+  margin-bottom: 10px;
+}
 
-      <div class="card">
-        <h3>LAN Switching Technologies <span>VLANs & STP</span></h3>
-        <p>Layer 2 switching operations, Virtual LAN segmentation, trunking protocols, and loop prevention mechanisms.</p>
-        <div class="notes-box">
-          <strong>Exam Core:</strong> Access vs. Trunk ports, IEEE 802.1Q encapsulation, and Native VLAN configuration.<br><br>
-          <strong>Deep Dive:</strong> Spanning Tree Protocol (STP / RSTP 802.1w) port states (Discarding, Learning, Forwarding), BPDU guard, PortFast, Inter-VLAN routing (Router-on-a-Stick & Layer 3 Switches), and EtherChannel (LACP/PAgP).
-        </div>
-      </div>
+#networking-library p,
+#networking-library li {
+  color: #d6dbe7;
+  line-height: 1.8;
+}
 
-      <div class="card">
-        <h3>Routing Technologies & OSPF <span>Layer 3</span></h3>
-        <p>Static routing configurations and dynamic interior gateway routing protocols for multi-hop packet delivery.</p>
-        <div class="notes-box">
-          <strong>Exam Core:</strong> Administrative Distance (AD), Metric calculation, and floating static routes.<br><br>
-          <strong>Deep Dive:</strong> OSPFv2 (Single-Area & Multi-Area Open Shortest Path First). Link-State Advertisements (LSAs), Dijkstra's Shortest Path First (SPF) algorithm, router IDs, Hello timers, and passive interfaces.
-        </div>
-      </div>
+#networking-library ul {
+  padding-left: 24px;
+}
 
-      <div class="card">
-        <h3>IPv4 & IPv6 Addressing <span>Subnetting</span></h3>
-        <p>IP network design, variable-length subnet masking (VLSM), public vs. private spaces, and next-gen addressing.</p>
-        <div class="notes-box">
-          <strong>Exam Core:</strong> CIDR notation, subnet calculation, wildcard masking, and address allocation.<br><br>
-          <strong>Deep Dive:</strong> IPv6 global unicast, link-local, unique local addresses, SLAAC (Stateless Address Autoconfiguration), EUI-64 format, and dual-stack migration strategies.
-        </div>
-      </div>
+#networking-library li {
+  margin-bottom: 8px;
+}
 
-      <div class="card">
-        <h3>IP Services & Infrastructure <span>DHCP, NAT, ACL</span></h3>
-        <p>Essential enterprise network services ensuring address management, traffic translation, and security filtration.</p>
-        <div class="notes-box">
-          <!-- LINUX COMMAND JOURNAL -->
-    <h2 class="section-title" id="linux">🐧 Linux Command & SysAdmin Masterclass</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Process & Resource Management <span>SysAdmin</span></h3>
-        <p>Monitor, trace, and terminate running system processes and evaluate CPU/memory usage dynamically.</p>
-        <div class="notes-box">
-          <strong>Core Commands:</strong> <code class="inline-code">ps aux</code>, <code class="inline-code">top</code>, <code class="inline-code">htop</code>, and <code class="inline-code">kill [PID]</code>.<br><br>
-          <strong>Deep Dive:</strong> Managing process priorities using <code class="inline-code">nice</code> and <code class="inline-code">renice</code>, tracking kernel system calls with <code class="inline-code">strace -p [PID]</code>, and analyzing real-time resource bottlenecks.
-        </div>
-      </div>
+#networking-library strong {
+  color: #ffffff;
+}
 
-      <div class="card">
-        <h3>Permissions, SUID & ACLs <span>Security</span></h3>
-        <p>Master Linux file security controls, UID/GID mapping, special permission bits, and Access Control Lists.</p>
-        <div class="notes-box">
-          <strong>Core Commands:</strong> <code class="inline-code">chmod 755</code>, <code class="inline-code">chown</code>, <code class="inline-code">setfacl</code>, and <code class="inline-code">getfacl</code>.<br><br>
-          <strong>Deep Dive:</strong> Auditing SUID/SGID binaries for privilege escalation vectors, understanding the Sticky Bit, and configuring granular access control lists for multi-user environments.
-        </div>
-      </div>
+html {
+  scroll-behavior: smooth;
+}
+    <style>
+:root{--bg:#05060b;--glass:rgba(15,20,36,.72);--line:#27334b;--red:#ff3157;--blue:#28a9ff;--cyan:#62e4ff;--text:#f4f7ff;--muted:#a6b2ca}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:radial-gradient(ellipse at 5% 10%,#45102055,transparent 40%),radial-gradient(ellipse at 95% 25%,#063e7755,transparent 40%),var(--bg);color:var(--text);font:16px/1.7 system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#070911df;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-weight:900;font-size:1.2rem;letter-spacing:-1px}
+.brand b{color:var(--cyan)}
+.links{display:flex;gap:20px;flex-wrap:wrap}
+.links a{font-size:.85rem;color:var(--muted)}
+.links a:hover{color:var(--cyan)}
+.hero{min-height:78vh;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:40px;padding-top:60px;padding-bottom:60px}
+.tag{color:var(--cyan);font-size:.75rem;letter-spacing:3px;text-transform:uppercase}
+h1{font-size:clamp(3rem,7vw,6rem);line-height:1.05;letter-spacing:-4px;margin:20px 0}
+.gradient{background:linear-gradient(100deg,#fff,var(--blue),var(--red));color:transparent;background-clip:text}
+p{color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{padding:12px 18px;border:1px solid #318bcb;border-radius:12px;background:#102a48;transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 24px #168cff35}
+.panel,.card{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);border-radius:22px;box-shadow:inset 0 1px #ffffff0b,0 20px 50px #0004}
+.panel{padding:30px;animation:float 6s ease-in-out infinite}
+.symbol{font-size:4rem;color:var(--cyan)}
+section.content{padding:65px 0}
+h2{font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:12px}
+.intro{max-width:650px;margin-bottom:30px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+.card{padding:24px;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);border-color:var(--blue)}
+.card h3{font-size:1.3rem;margin:12px 0}
+.card ul{padding-left:20px;margin:16px 0;color:var(--muted);font-size:.9rem}
+.red{color:var(--red)}.blue{color:var(--blue)}.purple{color:#bd91ff}
+.card a{display:inline-block;margin-top:12px;color:var(--cyan)}
+footer{padding:28px 0;border-top:1px solid var(--line);font-size:.85rem}
+@keyframes float{50%{transform:translateY(-9px)}}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:65px}.cards{grid-template-columns:1fr}.links{gap:10px}.links a{font-size:.75rem}h1{letter-spacing:-2px}.panel{margin-top:10px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><nav class="wrap">
+<a class="brand" href="#home">⬡ AegisCore <b>Hub</b></a>
+<div class="links"><a href="#home">Home</a><a href="#networking">Networking</a><a href="#linux">Linux</a><a href="#python">Python</a></div>
+</nav></header>
+<main>
+<section class="hero wrap" id="home">
+<div><span class="tag">Your engineering knowledge base</span>
+<h1>Master the<br><span class="gradient">Digital World.</span></h1>
+<p>Explore networking, Linux, Python automation and cybersecurity through structured lessons, practical examples and real technical projects.</p>
+<div class="actions"><a class="btn" href="#masterclasses">Explore Masterclasses ↗</a><a class="btn" href="#about">Our Approach</a></div></div>
+<div class="panel"><div class="symbol">⬡</div><span class="tag">AEGISCORE SYSTEMS</span><h2>Think deeper.<br><span class="gradient">Build smarter.</span></h2><p>Learn the foundations. Understand the systems. Practice responsibly.</p><br><p>NETWORKS / LINUX / PYTHON / SECURITY</p></div>
+</section>
+<section class="content wrap" id="masterclasses">
+<span class="tag">The knowledge library</span><h2>Three disciplines.<br><span class="gradient">One stronger skill set.</span></h2>
+<p class="intro">Choose a masterclass. Each library will organize concepts from beginner to advanced, with explanations, examples and practice.</p>
+<div class="cards">
+<article class="card" id="networking"><span class="tag red">MASTERCLASS / 01</span><h3>⌘ Networking</h3><p>Understand how devices communicate and how modern networks operate.</p><ul><li>OSI and TCP/IP</li><li>Ethernet, switching and VLANs</li><li>IPv4, IPv6 and subnetting</li><li>Routing, OSPF and STP</li><li>DNS, DHCP, NAT and security</li></ul><a href="#networking">Open Networking Library →</a></article>
+<article class="card" id="linux"><span class="tag blue">MASTERCLASS / 02</span><h3>⌘ Linux Journal</h3><p>Master the terminal, system administration and automation.</p><ul><li>Files, directories and commands</li><li>Users, permissions and ACLs</li><li>Processes and systemd</li><li>Networking and storage</li><li>Bash, logs and troubleshooting</li></ul><a href="#linux">Open Linux Library →</a></article>
+<article class="card" id="python"><span class="tag purple">MASTERCLASS / 03</span><h3>Py Python Utilities</h3><p>Build useful scripts and automate authorized security workflows.</p><ul><li>Python fundamentals</li><li>Files, regex and JSON</li><li>Network diagnostics</li><li>Log analysis and SHA-256</li><li>APIs, testing and automation</li></ul><a href="#python">Open Python Library →</a></article>
+</div>
+</section>
+<section class="content wrap" id="about"><span class="tag">The AegisCore standard</span><h2>Understand. Practice. Improve.</h2><p>Every topic should explain what it is, why it matters, how it works, and how to test your understanding. Practice security only on systems you own or have permission to test.</section>
+<section id="networking-library" class="panel">
+  <h2>Networking Masterclass</h2>
+  <p>Learn how devices communicate, how networks route traffic, and how to troubleshoot connections.</p>
 
-      <div class="card">
-        <h3>Network Troubleshooting & Diagnostics <span>Networking</span></h3>
-        <p>Inspect active socket connections, packet paths, network interfaces, and live traffic patterns.</p>
-        <div class="notes-box">
-          <strong>Core Commands:</strong> <code class="inline-code">ip a</code>, <code class="inline-code">ss -tulpn</code>, <code class="inline-code">tcpdump</code>, and <code class="inline-code">traceroute</code>.<br><br>
-          <strong>Deep Dive:</strong> Transitioning from legacy tools (<code class="inline-code">netstat</code>, <code class="inline-code">ifconfig</code>) to modern socket statistics, capturing live packet headers with <code class="inline-code">tcpdump</code>, and diagnosing routing loops.
-        </div>
-      </div>
+  <h3>Lesson 1 — What Is Computer Networking?</h3>
+  <p><strong>Definition:</strong> Computer networking is the connection of two or more devices so they can exchange data and share resources using agreed communication protocols.</p>
 
-      <div class="card">
-        <h3>Storage & File System Management <span>Storage</span></h3>
-        <p>Partitioning disks, managing logical volumes, mounting filesystems, and monitoring disk health.</p>
-        <div class="notes-box">
-          <strong>Core Commands:</strong> <code class="inline-code">lsblk</code>, <code class="inline-code">df -h</code>, <code class="inline-code">fdisk</code>, and <code class="inline-code">mount</code>.<br><br>
-          <strong>Deep Dive:</strong> Logical Volume Manager (LVM) architecture (Physical Volumes, Volume Groups, Logical Volumes), resizing filesystems live, and managing persistent mounts via <code class="inline-code">/etc/fstab</code>.
-        </div>
-      </div>
+  <h3>Purpose</h3>
+  <ul>
+    <li>Share files, printers, and internet access.</li>
+    <li>Communicate between computers, servers, and mobile devices.</li>
+    <li>Transfer data securely and reliably.</li>
+  </ul>
 
-      <div class="card">
-        <h3>Systemd & Service Control <span>Daemons</span></h3>
-        <p>Managing system startup, background daemons, service logs, and automated boot targets.</p>
-        <div class="notes-box">
-          <strong>Core Commands:</strong> <code class="inline-code">systemctl</code>, <code class="inline-code">journalctl</code>, and <code class="inline-code">systemd-analyze</code>.<br><br>
-          <strong>Deep Dive:</strong> Writing custom <code class="inline-code">.service</code> configuration files, analyzing boot performance bottlenecks, and querying persistent system logs with filters.
-        </div>
-      </div>
+  <h3>Real-world example</h3>
+  <p>When you open a website on your laptop, your device sends network traffic through your local network and router toward the website's server. The server sends data back to your device.</p>
 
-      <div class="card">
-        <h3>Log Parsing & Bash Scripting <span>Automation</span></h3>
-        <p>Extracting intelligence from log files using powerful text-processing utilities and conditional scripting.</p>
-        <div class="notes-box">
-          <strong>Core Commands:</strong> <code class="inline-code">gr
-            <!-- PYTHON UTILITIES -->
-    <h2 class="section-title" id="python">🐍 Python Utilities & Automation Masterclass</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Multi-Threaded Port Scanner <span>Networking</span></h3>
-        <p>Lightweight socket scanner built in Python to audit open ports across local network ranges rapidly.</p>
-        <div class="notes-box">
-          <strong>Core Concepts:</strong> Python <code class="inline-code">socket</code> module and <code class="inline-code">concurrent.futures</code>.<br><br>
-          <strong>Implementation Blueprint:</strong> Using <code class="inline-code">ThreadPoolExecutor</code> to sweep TCP ports concurrently, setting connection timeouts, and handling exceptions for closed or filtered ports cleanly.
-        </div>
-      </div>
+  <h3>Essential networking terms</h3>
+  <ul>
+    <li><strong>Host:</strong> A device that sends or receives network data.</li>
+    <li><strong>IP address:</strong> A logical address used to identify an interface on an IP network.</li>
+    <li><strong>MAC address:</strong> A link-layer address used for communication on many local networks.</li>
+    <li><strong>Router:</strong> Forwards packets between IP networks.</li>
+    <li><strong>Switch:</strong> Forwards Ethernet frames within a local network.</li>
+    <li><strong>Protocol:</strong> Rules that devices follow to communicate.</li>
+    <li><strong>Packet:</strong> A unit of data carried by a network-layer protocol.</li>
+  </ul>
 
-      <div class="card">
-        <h3>Log Analyzer & Threat Parser <span>Security</span></h3>
-        <p>Automated script parser designed to scan web server access logs for anomalous traffic or brute-force attempts.</p>
-        <div class="notes-box">
-          <strong>Core Concepts:</strong> File handling, Regular Expressions (<code class="inline-code">re</code>), and <code class="inline-code">collections.Counter</code>.<br><br>
-          <strong>Implementation Blueprint:</strong> Extracting IP addresses via regex patterns (<code class="inline-code">re.findall</code>), tracking frequency thresholds to flag suspicious activity, and outputting summary reports.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>File Integrity Checker (FIM) <span>Defense</span></h3>
-        <p>Hashing utility that tracks cryptographic signatures of vital configuration files to alert against unauthorized modifications.</p>
-        <div class="notes-box">
-          <strong>Core Concepts:</strong> Cryptographic hashing via <code class="inline-code">hashlib</code> and JSON state manifests.<br><br>
-          <strong>Implementation Blueprint:</strong> Generating SHA-256 hashes of files in chunks, storing baselines in JSON format, and running recursive directory differentials to trigger instant alerts on file tampering.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Network Ping Sweep Tool <span>Diagnostics</span></h3>
-        <p>Automated subprocess manager that pings a subnet range to identify active live hosts connected to the network.</p>
-        <div class="notes-box">
-          <strong>Core Concepts:</strong> Operating system process execution via <code class="inline-code">subprocess</code>.<br><br>
-          <strong>Implementation Blueprint:</strong> Programmatically calling system ping utilities, handling return codes to verify node reachability, and parsing standard outputs into clean lists.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>REST API Threat Intelligence Fetcher <span>Integration</span></h3>
-        <p>Querying external security APIs to pull live reputation data, indicators of compromise (IOCs), or geo-IP lookups.</p>
-        <div class="notes-box">
-          <strong>Core Concepts:</strong> HTTP requests via <code class="inline-code">urllib</code> or <code class="inline-code">requests</code> and JSON parsing.<br><br>
-          <strong>Implementation Blueprint:</strong> Sending authenticated GET requests to threat feeds, handling JSON response structures, and managing error states gracefully for secure API consumption.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Automated System Backup & Archiver <span>SysAdmin</span></h3>
-        <p>Script utility that compresses log directories and critical configurations into secure, timestamped archives.</p>
-        <div class="notes-box">
-          <strong>Core Concepts:</strong> Built-in <code class="inline-code">shutil</code> and <code class="inline-code">tarfile</code> compression modules.<br><br>
-          <strong>Implementation Blueprint:</strong> Creating automated daily snapshots, appending dynamic timestamps to archive filenames, and managing file directory structures programmatically.
-        </div>
-      </div
+  <h3>Exam question</h3>
+  <p>Explain computer networking in your own words and distinguish between a router and a switch.</p>
+</section>
+</main>
+<footer><div class="wrap">⬡ AegisCore Hub · Learn Today. Secure Tomorrow.</div></footer>
+</body>
+</html>
